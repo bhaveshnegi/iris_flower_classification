@@ -27,3 +27,12 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.33,random_state=4
 knn = KNeighborsClassifier(n_neighbors = 3)
 knn.fit(X_train, y_train)
 
+#Evaluate model
+
+y_pred = knn.predict(X_test)
+print("y_pred",y_pred)
+print("y_test",y_test)
+
+#checkong accuracy
+
+print("Accuracy",accuracy_score(y_test,y_pred))
