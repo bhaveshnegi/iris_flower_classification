@@ -1,23 +1,20 @@
-import pandas as pd
+from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
 # data preparation
+iris = load_iris()
+print("Target")
+print(iris.target)
+print("Target Names")
+print(iris.target_names)
+print("Feature Names")
+print(iris.feature_names)
+X = iris.data
+y = iris.target
 
-df=pd.read_csv('Iris.csv')
-df.drop('Id',axis=1,inplace=True)
-sp={'Iris-setosa':1,'Iris-versicolor':2,'Iris-virginica':3}
-df.Species=[sp[i] for i in df.Species]
-print(df)
-
-X=df.iloc[:,0:4]
-print(X)
-
-y=df.iloc[:,4]
-print(y)
-
-X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.33,random_state=42)
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=4)
 
 #traning model
 
