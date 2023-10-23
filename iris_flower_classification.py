@@ -10,4 +10,12 @@ df=pd.read_csv('Iris.csv')
 df.drop('Id',axis=1,inplace=True)
 sp={'Iris-setosa':1,'Iris-versicolor':2,'Iris-virginica':3}
 df.Species=[sp[i] for i in df.Species]
-df
+print(df)
+
+X=df.iloc[:,0:4]
+print(X)
+
+y=df.iloc[:,4]
+print(y)
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.33,random_state=42)
