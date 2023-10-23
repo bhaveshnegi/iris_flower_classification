@@ -3,8 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import seaborn as sns
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
+
+# data preparation
 
 df=pd.read_csv('Iris.csv')
 df.drop('Id',axis=1,inplace=True)
@@ -20,8 +22,8 @@ print(y)
 
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.33,random_state=42)
 
-model=LinearRegression()
-print(model.fit(X,y))
-print("Score",model.score(X,y))
-print("Coef",model.coef_)
-print("Intercept",model.intercept_)
+#traning model
+
+knn = KNeighborsClassifier(n_neighbors = 3)
+knn.fit(X_train, y_train)
+
