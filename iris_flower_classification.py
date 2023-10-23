@@ -19,3 +19,9 @@ y=df.iloc[:,4]
 print(y)
 
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.33,random_state=42)
+
+model=LinearRegression()
+print(model.fit(X,y))
+print("Score",model.score(X,y))
+print("Coef",model.coef_)
+print("Intercept",model.intercept_)
